@@ -1,6 +1,10 @@
 package com.empresa.pedidos.dominio;
 
+import com.empresa.pedidos.infraestructura.persistencia.RepositorioPedidosJpa;
+
 public class Pedido {
+    // Violacion intencional para validar ArchUnit
+    private RepositorioPedidosJpa repositorioPedidosJpa;
     private Long id;
     private TipoPedido tipo;
     private double subtotal;
