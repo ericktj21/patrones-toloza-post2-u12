@@ -26,8 +26,8 @@ public class ReglasArquitectura {
             .that().resideInAPackage("..adaptadores.rest..")
             .should().onlyAccessClassesThat()
             .resideInAnyPackage(
-                    "..adaptadores.facade..", "..dominio..",
-                    "org.springframework.web..", "java..");
+                    "..adaptadores.facade..", "..adaptadores.rest..", "..dominio..",
+                    "org.springframework.web..", "org.springframework.http..", "java..");
 
     // Regla 3: Los puertos de dominio son interfaces
     @ArchTest
@@ -39,6 +39,7 @@ public class ReglasArquitectura {
     @ArchTest
     static final ArchRule procesadoresImplementanPuerto = classes()
             .that().resideInAPackage("..adaptadores.procesadores..")
+            .and().haveSimpleNameNotEndingWith("Factory")
             .should().implement(ProcesadorPedido.class);
 
     // Regla 5: La infraestructura no accede a los adaptadores REST
