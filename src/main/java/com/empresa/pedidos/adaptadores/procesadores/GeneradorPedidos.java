@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProcesadorPedidoFactory {
+public class GeneradorPedidos {
     private final Map<TipoPedido, ProcesadorPedido> procesadores;
 
-    public ProcesadorPedidoFactory(List<ProcesadorPedido> lista) {
+    public GeneradorPedidos(List<ProcesadorPedido> lista) {
         this.procesadores = lista.stream().collect(
                 Collectors.toMap(ProcesadorPedido::getTipo, Function.identity())
         );
